@@ -1,12 +1,25 @@
 import React from 'react';
 import Form from '../components/form';
+import { Link } from 'react-router-dom';
 
 function BookingPage() {
     return (
         <div className="bg-white min-h-screen">
-            <nav className="bg-green-700 text-white flex justify-center items-center h-16">
-                <span className="text-2xl font-bold uppercase">Little Lemon</span>
-            </nav>
+            <header className="bg-green-700 h-16 flex items-center justify-between px-4">
+                <h1 className="text-white text-lg font-bold">Little Lemon</h1>
+                <nav>
+                    <ul className="flex space-x-4 text-white">
+                        <ul className="flex space-x-4 text-white">
+                            <Link to="/">
+                                <li>Home</li>
+                            </Link>
+                            <Link to="/booking">
+                                <li>Booking</li>
+                            </Link>
+                        </ul>
+                    </ul>
+                </nav>
+            </header>
             <div className="flex justify-center py-6">
                 <div className="w-full max-w-3xl px-4 sm:px-6 lg:px-8">
                     <div className="bg-white shadow-lg rounded-md px-8 pt-6 pb-8 mb-4">
