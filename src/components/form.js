@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Swal from "sweetalert2";
 
 export default function Form() {
     const [name, setName] = useState("");
@@ -12,6 +13,13 @@ export default function Form() {
     const handleSubmit = (event) => {
         event.preventDefault();
         console.log("submit")
+        Swal.fire({
+            title: "Thank you for your reservation!",
+            text: "We will contact you shortly.",
+            icon: "success",
+            confirmButtonText: "OK",
+        });
+
     };
 
     return (
@@ -67,7 +75,6 @@ export default function Form() {
                         id="phone"
                         type="tel"
                         placeholder="123-456-7890"
-                        pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
                         value={phone}
                         onChange={(event) => setPhone(event.target.value)}
                         required
@@ -136,7 +143,7 @@ export default function Form() {
                         className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                         htmlFor="message"
                     >
-                        Message
+                        Note
                     </label>
                     <textarea
                         className="no-resize appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-48 resize-none"
@@ -144,7 +151,6 @@ export default function Form() {
                         placeholder="Your message here..."
                         value={message}
                         onChange={(event) => setMessage(event.target.value)}
-                        required
                     />
                 </div>
             </div>
